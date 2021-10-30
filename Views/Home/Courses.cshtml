@@ -1,0 +1,76 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Courses";
+
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-reboot.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+<div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"></div>
+
+<h1>Courses</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Course ID</th>
+            <th>Course Number</th>
+            <th>Course Name</th>
+            <th>Course Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @Model.Courses)
+        {
+            <tr>
+                <th scope="row">@item.ID</th>
+                <td>@item.Number</td>
+                <td>
+                    <!-- span trigger modal -->
+                    <span onclick="showEnrolled('@item.ID')" style="cursor:pointer" data-toggle="modal" data-target="#exampleModal">
+                        @item.Name
+                    </span>
+                </td>
+                <td>@item.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!--button type="button" class="btn btn-primary">Save changes</!--button -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    function showEnrolled(id) {
+        console.log('@Url.Action("ViewEnrolled", "Home")/' + id);
+
+        $.get('@Url.Action("ViewEnrolled", "Home")/' + id,
+            function (data) {
+                console.log('result = ' + data);
+                $(".modal-body").html(data);
+        });
+    }
+
+</script>
