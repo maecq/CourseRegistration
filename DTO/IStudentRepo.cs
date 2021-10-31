@@ -9,5 +9,6 @@ namespace CourseRegistration.DTO
     {
         IEnumerable<Students> GetAll();
         Students GetById(int Id);
+        void Create(Students student);
     }
 }

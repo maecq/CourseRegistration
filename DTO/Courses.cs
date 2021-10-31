@@ -11,5 +11,7 @@ namespace CourseRegistration.DTO
         public string Name { get; set; }
         public string Description { get; set; }
 
+        public Students Students { get; set; }
+
     }
 }

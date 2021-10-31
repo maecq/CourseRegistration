@@ -18,13 +18,6 @@ namespace CourseRegistration.Controllers
             _repo = repo;
             _courseRepo = courseRepo;
         }
-
-        //public ActionResult<IEnumerable<Instructors>> Index()
-        //{
-        //    var instructors = _repo.GetAll();
-        //    return View(instructors);
-        //}
-
         public IActionResult Index()
         {
             var courses = _courseRepo.GetAll().ToList();

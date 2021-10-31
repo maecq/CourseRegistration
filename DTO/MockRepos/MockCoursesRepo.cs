@@ -14,7 +14,8 @@ namespace CourseRegistration.DTO.MockRepos
                 new Courses{ CourseID = 1003, Name = "ESPIONAGE", Description = "Espionage Course Description"},
                 new Courses{ CourseID = 1004, Name = "PHYSICS", Description = "Physics Course Description"},
                 new Courses{ CourseID = 1005, Name = "ARCHERY", Description = "Archery Course Description"},
-                new Courses{ CourseID = 1006, Name = "HISTORY", Description = "History Course Description"}
+                new Courses{ CourseID = 1006, Name = "HISTORY", Description = "History Course Description"},
+                new Courses{ CourseID = 1007, Name = "ATHLETICS", Description = "History Course Description"}
 
         };
 
