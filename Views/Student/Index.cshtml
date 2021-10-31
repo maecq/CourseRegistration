@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Students</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -84,7 +84,6 @@
 
 
 <script type="text/javascript">
-
     function showStudent(id) {
         console.log('Student id= ', id);
 
@@ -95,9 +94,6 @@
                 console.log('result = ' + data);
                 $(".modal-body").html(data);
             });
-
-
     }
-
 </script>
 

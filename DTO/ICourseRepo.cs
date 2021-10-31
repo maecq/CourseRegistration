@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 
 namespace CourseRegistration.DTO
 {
-    public interface IStudentRepo
+    public interface ICourseRepo
     {
-        IEnumerable<Students> GetAll();
-        Students GetById(int Id);
+        IEnumerable<Courses> GetAll();
+        Courses GetById(int Id);
+        void Create(Courses course);
+
     }
 }

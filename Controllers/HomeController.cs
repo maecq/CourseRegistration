@@ -11,25 +11,20 @@ namespace CourseRegistration.Controllers
 {
     public class HomeController : Controller
     {
-
-
         private readonly ILogger<HomeController> _logger;
-
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
-
         public IActionResult Index()
         {
             return View();
         }
-
         public IActionResult Privacy()
         {
             return View();
         }
-
+        /*
         public IActionResult Instructors()
         {
             InstructorsViewModel ivm = new InstructorsViewModel();
@@ -71,17 +66,15 @@ namespace CourseRegistration.Controllers
             CoursesViewModel cvm = new CoursesViewModel();
             List<DTO.Courses> kurso = new List<DTO.Courses>()
             {
-                new DTO.Courses { ID = "SCIENCE101", Number = 1001, Name = "SCIENCE", Description = "Science Course Description" },
-                new DTO.Courses{ ID = "MILTAC101", Number = 1002, Name = "MILITARY TACTICS", Description = "Military Tactics Course Description"},
-                new DTO.Courses{ ID = "SPY101", Number = 1003, Name = "ESPIONAGE", Description = "Espionage Course Description"},
-                new DTO.Courses{ ID = "PHYSICS101", Number = 1004, Name = "PHYSICS", Description = "Physics Course Description"},
-                new DTO.Courses{ ID = "ARCHERY101", Number = 1005, Name = "ARCHERY", Description = "Archery Course Description"}
-
+                new DTO.Courses { CourseID = 1001, Name = "SCIENCE", Description = "Science Course Description" },
+                new DTO.Courses{ CourseID = 1002, Name = "MILITARY TACTICS", Description = "Military Tactics Course Description"},
+                new DTO.Courses{ CourseID = 1003, Name = "ESPIONAGE", Description = "Espionage Course Description"},
+                new DTO.Courses{ CourseID = 1004, Name = "PHYSICS", Description = "Physics Course Description"},
+                new DTO.Courses{ CourseID = 1005, Name = "ARCHERY", Description = "Archery Course Description"}
             };
             cvm.Courses = kurso;
             return View(cvm);
-        }
-
+        }        
         public IActionResult ViewEnrolled()
         {
             ViewEnrolledViewModel ve = new ViewEnrolledViewModel();
@@ -93,7 +86,7 @@ namespace CourseRegistration.Controllers
             ve.enrolledStudents = enrolees;
             return View(ve);
         }
-
+        */
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
