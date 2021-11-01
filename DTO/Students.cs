@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,6 +10,7 @@ namespace CourseRegistration.DTO
 {
     public class Students
     {
+        [Key]
         public int StudentID { get; set; }
         [DisplayName("First Name")]
         public string FirstName { get; set; }
@@ -18,8 +21,9 @@ namespace CourseRegistration.DTO
         [DisplayName("Phone Number")]
         public string Phone { get; set; }
 
-        [DisplayName("Registered Courses")]
-        public int? CourseID { get; set; }
+        //[DisplayName("Registered Courses")]
+        //public int? CourseID { get; set; }
+
         public Courses Courses { get; set; }
     }
 }

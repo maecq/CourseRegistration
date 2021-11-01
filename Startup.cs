@@ -1,8 +1,11 @@
+using CourseRegistration.Data;
+using CourseRegistration.Data.SQLRepos;
 using CourseRegistration.DTO;
 using CourseRegistration.DTO.MockRepos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,9 +29,19 @@ namespace CourseRegistration
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddScoped<IStudentRepo, MockStudentsRepo>();
-            services.AddScoped<IInstructorRepo, MockInstructorsRepo>();
-            services.AddScoped<ICourseRepo, MockCoursesRepo>();
+            services.AddDbContext<AppDbContext>(o =>
+           {
+               var connString = Configuration.GetConnectionString("Default");
+               o.UseSqlServer(connString);
+           });
+            //services.AddScoped<IStudentRepo, MockStudentsRepo>();
+            //services.AddScoped<IInstructorRepo, MockInstructorsRepo>();
+            //services.AddScoped<ICourseRepo, MockCoursesRepo>();
+            //services.AddScoped<IStudentCourseRepo, MockStudentCourseRepo>();
+            services.AddScoped<IStudentRepo, SQLStudentRepo>();
+            services.AddScoped<IInstructorRepo, SQLInstructorRepo>();
+            services.AddScoped<ICourseRepo, SQLCourseRepo>();
+            services.AddScoped<IStudentCourseRepo, SQLStudentCourseRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

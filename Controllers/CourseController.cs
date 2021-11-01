@@ -10,10 +10,12 @@ namespace CourseRegistration.Controllers
     public class CourseController : Controller
     {
         private readonly ICourseRepo _repo;
+        private readonly IStudentCourseRepo _studentCourseRepo;
 
-        public CourseController(ICourseRepo repo)
+        public CourseController(ICourseRepo repo, IStudentCourseRepo studentCourseRepo)
         {
             _repo = repo;
+            _studentCourseRepo = studentCourseRepo;
         }
         public ActionResult<IEnumerable<Courses>> Index()
         {
@@ -35,7 +37,6 @@ namespace CourseRegistration.Controllers
             return RedirectToAction("Index");
         }
 
-        
 
     }
 }

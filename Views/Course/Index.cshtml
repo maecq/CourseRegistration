@@ -72,11 +72,14 @@
     function showRegisteredStudents(id) {
         console.log('Course id= ', id);
 
+        console.log('@Url.Action("GetStudentByCourseID", "Student")/' + id);
+
+
         $.get('@Url.Action("GetStudentByCourseID", "Student")/' + id,
             function (data) {
                 console.log('result = ' + data);
                 $(".modal-body").html(data);
-            });
+        });
 
 
     }

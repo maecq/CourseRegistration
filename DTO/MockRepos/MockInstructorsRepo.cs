@@ -15,7 +15,6 @@ namespace CourseRegistration.DTO.MockRepos
                 new Instructors{ InstructorID = 0904, FirstName = "Natasha", LastName = "Romanoff", Email="Natasha.Romanoff@Marvel.com" , CourseID = 1003},
                 new Instructors{ InstructorID = 0905, FirstName = "Bruce", LastName = "Banner", Email="Bruce.Banner@Marvel.com" , CourseID = 1004},
                 new Instructors{ InstructorID = 0906, FirstName = "Clint", LastName = "Barton", Email="Clint.Barton@Marvel.com" , CourseID = 1005}
-
         };
 
         public void Create(Instructors instructor)
